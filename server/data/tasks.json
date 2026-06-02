@@ -12,7 +12,7 @@
     "id": 2,
     "title": "Conectar API de tareas",
     "description": "Exponer endpoints REST y persistencia local para el tablero.",
-    "status": "progress",
+    "status": "review",
     "priority": "high",
     "owner": "Nadia",
     "dueDate": "2026-06-03"
@@ -21,7 +21,7 @@
     "id": 3,
     "title": "Revisar estados del Kanban",
     "description": "Validar que el equipo pueda mover tareas sin romper el flujo.",
-    "status": "review",
+    "status": "done",
     "priority": "medium",
     "owner": "Mica",
     "dueDate": "2026-06-05"

@@ -1,18 +1,6 @@
-import {
-  FaChartPie,
-  FaClipboardList,
-  FaLayerGroup,
-  FaUser,
-} from "react-icons/fa";
+import navigationLinks from "../constants/navigation.jsx";
 
-function Sidebar() {
-  const links = [
-    { label: "Dashboard", icon: <FaChartPie />, active: true },
-    { label: "Tareas", icon: <FaClipboardList /> },
-    { label: "Equipos", icon: <FaLayerGroup /> },
-    { label: "Perfil", icon: <FaUser /> },
-  ];
-
+function Sidebar({ activeSection, setActiveSection }) {
   return (
     <aside className="fixed left-0 top-0 hidden h-screen w-72 flex-col border-r border-white/10 bg-[#0d101c]/95 p-6 shadow-2xl shadow-black/30 lg:flex">
       <h1 className="mb-10 text-2xl font-black tracking-tight">
@@ -20,11 +8,13 @@ function Sidebar() {
       </h1>
 
       <nav className="space-y-2">
-        {links.map((link) => (
+        {navigationLinks.map((link) => (
           <button
-            key={link.label}
+            key={link.id}
+            type="button"
+            onClick={() => setActiveSection(link.id)}
             className={`flex w-full items-center gap-3 rounded-lg px-4 py-3 text-sm font-semibold transition ${
-              link.active
+              activeSection === link.id
                 ? "bg-teal-400 text-slate-950 shadow-lg shadow-teal-500/20"
                 : "text-slate-300 hover:bg-white/[0.07] hover:text-white"
             }`}
