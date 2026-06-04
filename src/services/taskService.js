@@ -36,7 +36,22 @@ export function updateTask(id, updates) {
 }
 
 export function deleteTask(id) {
-  return request(`/${id}`, {
+  return fetch(`${API_URL}/${id}`, {
     method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }).then(async (response) => {
+    if (response.status === 404) {
+      return { id, notFound: true };
+    }
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.message || "No se pudo eliminar la tarea.");
+    }
+
+    return data;
   });
 }

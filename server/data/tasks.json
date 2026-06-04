@@ -1,14 +1,5 @@
 [
   {
-    "id": 1,
-    "title": "Disenar sistema de onboarding",
-    "description": "Mapear el flujo de bienvenida, activacion y primer proyecto.",
-    "status": "backlog",
-    "priority": "high",
-    "owner": "Leo",
-    "dueDate": "2026-06-06"
-  },
-  {
     "id": 2,
     "title": "Conectar API de tareas",
     "description": "Exponer endpoints REST y persistencia local para el tablero.",

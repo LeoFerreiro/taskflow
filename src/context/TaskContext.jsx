@@ -45,8 +45,21 @@ export function TaskProvider({ children }) {
   }
 
   async function removeTask(id) {
-    await deleteTask(id);
+    const previousTasks = tasks;
+
     setTasks((prev) => prev.filter((task) => task.id !== id));
+
+    try {
+      await deleteTask(id);
+    } catch (deleteError) {
+      const isServerlessMiss = /no encontrada/i.test(deleteError.message);
+
+      if (!isServerlessMiss) {
+        setTasks(previousTasks);
+        setError(deleteError.message);
+        throw deleteError;
+      }
+    }
   }
 
   const stats = useMemo(() => {
